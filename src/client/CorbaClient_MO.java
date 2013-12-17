@@ -91,6 +91,14 @@ public class CorbaClient_MO {
     }
     
     public StructVeranstaltung getVeranstaltungById(int veranstaltungID) {
+        StructVeranstaltung[] veranstaltungen =  Stub.sucheVeranstaltungNachKriterien("", "", "");
+        for(int i = 0; i<veranstaltungen.length; i++)
+        {
+            if(veranstaltungen[i].vid == veranstaltungID)
+            {
+                return veranstaltungen[i];
+            }
+        }
         return new StructVeranstaltung(veranstaltungID, "", "", "", "", true);
     } 
 }
